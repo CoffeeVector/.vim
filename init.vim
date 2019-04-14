@@ -1,6 +1,6 @@
 let mapleader = ","
 
-call plug#begin()
+ call plug#begin()
 Plug 'https://github.com/junegunn/goyo.vim'
 Plug 'https://github.com/vim-airline/vim-airline.git'
 Plug 'https://github.com/vim-airline/vim-airline-themes.git'
@@ -31,11 +31,23 @@ noremap ; :
 
 " Automatically reformat before write. TODO: MAKE A WAY TO NOT DO THIS WHEN I
 " DON'T WANT IT TO
-autocmd BufWrite * :Autoformat
+let autoFormat = 1
+function TryAutoFormat(a)
+	if a:a
+		:Autoformat
+	endif
+endfunction
+autocmd BufWrite * call TryAutoFormat(autoFormat)
 
 " Auto compile latex
+let lac = 1
+function TryCompile(l)
+	if a:l
+		!pdflatex --output-directory '%:p:h' % > /dev/null
+	endif
+endfunction
 autocmd Filetype tex,latex
-			\ autocmd BufWritePost * silent! !pdflatex --output-directory '%:p:h' % > /dev/null
+			\ autocmd BufWritePost * silent! call TryCompile(lac)
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
 nnoremap <F5> "=strftime("%B %d, %Y")<CR>P
