@@ -1,6 +1,6 @@
 let mapleader = ","
 
- call plug#begin()
+call plug#begin()
 Plug 'https://github.com/junegunn/goyo.vim'
 Plug 'https://github.com/vim-airline/vim-airline.git'
 Plug 'https://github.com/vim-airline/vim-airline-themes.git'
@@ -29,8 +29,6 @@ color monokai
 " Make semicolon do the same thing as colon
 noremap ; :
 
-" Automatically reformat before write. TODO: MAKE A WAY TO NOT DO THIS WHEN I
-" DON'T WANT IT TO
 let autoFormat = 1
 function TryAutoFormat(a)
 	if a:a
@@ -86,5 +84,6 @@ autocmd FileType tex inoremap <leader>t <Esc>:r ~/.config/nvim/template/latex/te
 " C, Java things
 autocmd FileType c,java nnoremap <leader>for :r ~/.config/nvim/template/cjava/for.template<ENTER>
 autocmd FileType c,java inoremap <leader>for <Esc>:r ~/.config/nvim/template/cjava/for.template<ENTER>i
-autocmd FileType c,java nnoremap <leader>while :r ~/.config/nvim/template/cjava/while.template<ENTER>
-autocmd FileType c,java inoremap <leader>while <Esc>:r ~/.config/nvim/template/cjava/while.template<ENTER>i
+autocmd FileType c,java nnoremap <leader>while :r ~/.config/nvim/template/cjava/while.template<ENTER> autocmd FileType c,java inoremap <leader>while <Esc>:r ~/.config/nvim/template/cjava/while.template<ENTER>i
+" Calculator
+vnoremap <leader>c :!bc -l<ENTER>
