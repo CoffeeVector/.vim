@@ -22,6 +22,8 @@ set spell
 set clipboard=unnamedplus
 set wildmenu
 set bg=dark
+set tabstop=4
+set shiftwidth=4
 syntax enable
 syntax on
 filetype plugin on
@@ -29,13 +31,19 @@ color monokai
 " Make semicolon do the same thing as colon
 noremap ; :
 
-let autoFormat = 1
+let b:autoFormat = 0
 function TryAutoFormat(a)
 	if a:a
 		:Autoformat
 	endif
 endfunction
-autocmd BufWrite * call TryAutoFormat(autoFormat)
+autocmd BufWrite * call TryAutoFormat(b:autoFormat)
+
+function ToggleAutoFormat()
+	let b:autoFormat= 1 - b:autoFormat
+endfunction
+
+nnoremap <leader>f :let b:autoFormat = 1 - b:autoFormat <Enter>
 
 " Auto compile latex
 let lac = 1
@@ -52,7 +60,7 @@ nnoremap <F5> "=strftime("%B %d, %Y")<CR>P
 inoremap <F5> <C-R>=strftime("%B %d, %Y")<CR>
 
 " Goyo view
-map <leader>f :Goyo \| set linebreak<CR>
+map <leader>g :Goyo \| set linebreak<CR>
 
 " New line without putting into insert mode
 nmap <S-CR> O<Esc>
