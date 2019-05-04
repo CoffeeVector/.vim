@@ -12,3 +12,12 @@ for (<++>) {
 }
 ```
 Then hitting `<leader><leader>` will jump your cursor into the conditional section, then hitting `<leader><leader>` again will jump your cursor into the block section.
+
+Another favorite example of mine is `<leader>b`, which generates the following code block
+```
+\begin{<++>}
+<++>
+\end{<++>}
+<++>
+```
+This idea comes from Luke Smith, although my implementation varies slightly.
