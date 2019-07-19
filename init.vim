@@ -1,5 +1,4 @@
 let mapleader = ","
-
 call plug#begin()
 Plug 'https://github.com/junegunn/goyo.vim'
 Plug 'https://github.com/vim-airline/vim-airline.git'
@@ -10,6 +9,7 @@ Plug 'https://github.com/udalov/kotlin-vim'
 Plug 'https://github.com/pangloss/vim-javascript'
 Plug 'https://github.com/mxw/vim-jsx'
 Plug 'https://github.com/crusoexia/vim-monokai'
+Plug 'https://github.com/neovimhaskell/haskell-vim'
 call plug#end()
 
 set nocompatible
@@ -22,6 +22,7 @@ set spell
 set clipboard=unnamedplus
 set wildmenu
 set bg=dark
+set expandtab
 set tabstop=4
 set shiftwidth=4
 syntax enable
