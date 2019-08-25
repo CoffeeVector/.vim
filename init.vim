@@ -32,29 +32,29 @@ color monokai
 " Make semicolon do the same thing as colon
 noremap ; :
 
-let b:autoFormat = 0
+let g:autoFormat = 0
 function TryAutoFormat(a)
-	if a:a
-		:Autoformat
-	endif
+    if a:a
+        :Autoformat
+    endif
 endfunction
-autocmd BufWrite * call TryAutoFormat(b:autoFormat)
+autocmd BufWrite * call TryAutoFormat(g:autoFormat)
 
 function ToggleAutoFormat()
-	let b:autoFormat= 1 - b:autoFormat
+    let g:autoFormat= 1 - g:autoFormat
 endfunction
 
-nnoremap <leader>f :let b:autoFormat = 1 - b:autoFormat <Enter>
+nnoremap <leader>f :let g:autoFormat = 1 - g:autoFormat <Enter>
 
 " Auto compile latex
 let lac = 1
 function TryCompile(l)
-	if a:l
-		!pdflatex --output-directory '%:p:h' % > /dev/null
-	endif
+    if a:l
+        !pdflatex --output-directory '%:p:h' % > /dev/null
+    endif
 endfunction
 autocmd Filetype tex,latex
-			\ autocmd BufWritePost * silent! call TryCompile(lac)
+            \ autocmd BufWritePost * silent! call TryCompile(lac)
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
 nnoremap <F5> "=strftime("%B %d, %Y")<CR>P
