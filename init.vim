@@ -54,6 +54,8 @@ autocmd Filetype tex,latex
             \ autocmd BufWritePost * silent! call TryCompile(lac)
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
+
+" insert date with f5
 nnoremap <F5> "=strftime("%B %d, %Y")<CR>P
 inoremap <F5> <C-R>=strftime("%B %d, %Y")<CR>
 
