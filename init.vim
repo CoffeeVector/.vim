@@ -29,6 +29,7 @@ syntax enable
 syntax on
 filetype plugin on
 color monokai
+set tags=tags;
 
 " Make semicolon do the same thing as colon
 noremap ; :
@@ -42,6 +43,7 @@ endfunction
 autocmd BufWrite * call TryAutoFormat(g:autoFormat)
 
 nnoremap <leader>f :let g:autoFormat = 1 - g:autoFormat <Enter>
+nnoremap <leader>p :let lac = 1 - lac <Enter>
 
 " Auto compile latex
 let lac = 1
