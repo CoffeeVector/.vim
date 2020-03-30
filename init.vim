@@ -10,6 +10,7 @@ Plug 'https://github.com/pangloss/vim-javascript'
 Plug 'https://github.com/mxw/vim-jsx'
 Plug 'https://github.com/crusoexia/vim-monokai'
 Plug 'https://github.com/neovimhaskell/haskell-vim'
+Plug 'https://github.com/Glench/Vim-Jinja2-Syntax'
 call plug#end()
 
 set nocompatible
