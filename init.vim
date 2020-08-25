@@ -19,17 +19,20 @@ set smartcase
 set spelllang=en
 set number
 set relativenumber
-set spell
+"set spell
 set clipboard=unnamedplus
 set wildmenu
 set bg=dark
 set expandtab
 set tabstop=4
 set shiftwidth=4
+
+set inccommand=split
+
 syntax enable
 syntax on
 filetype plugin on
-color monokai
+"color monokai
 set tags=tags;
 
 " Make semicolon do the same thing as colon
@@ -57,6 +60,10 @@ autocmd Filetype tex,latex
             \ autocmd BufWritePost * silent! call TryCompile(lac)
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
+
+" set html jinja to html
+autocmd BufNewFile,BufRead *.html.jinja set syntax=html
+autocmd BufNewFile,BufRead *.tex.jinja set syntax=tex
 
 " insert date with f5
 nnoremap <F5> "=strftime("%B %d, %Y")<CR>P
