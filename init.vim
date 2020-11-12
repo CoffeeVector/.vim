@@ -10,7 +10,7 @@ Plug 'https://github.com/pangloss/vim-javascript'
 Plug 'https://github.com/mxw/vim-jsx'
 Plug 'https://github.com/crusoexia/vim-monokai'
 Plug 'https://github.com/neovimhaskell/haskell-vim'
-Plug 'https://github.com/Glench/Vim-Jinja2-Syntax'
+Plug 'https://github.com/lepture/vim-jinja'
 call plug#end()
 
 set nocompatible
@@ -62,8 +62,10 @@ hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
 
 " set html jinja to html
-autocmd BufNewFile,BufRead *.html.jinja set syntax=html
-autocmd BufNewFile,BufRead *.tex.jinja set syntax=tex
+autocmd BufNewFile,BufRead *.html.jinja set ft=jinja
+autocmd BufNewFile,BufRead *.js.jinja set ft=jinja
+autocmd BufNewFile,BufRead *.css.jinja set ft=jinja
+autocmd BufNewFile,BufRead *.tex.jinja set ft=tex
 
 " insert date with f5
 nnoremap <F5> "=strftime("%B %d, %Y")<CR>P
